@@ -14,7 +14,7 @@ clone(){
 
     #goto repo and set master branch correctly
     cd $(basename ${repo%.git})
-    hg bookmark -r default master
+    hg bookmark master
     cd ..
 }
 

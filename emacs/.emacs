@@ -105,11 +105,6 @@
 
 ;; Default text width
 (setq default-fill-column 67)
-;; auto-fill-mode for text files
-(add-hook 'latex-mode-hook
-          (lambda ()
-            (set-fill-column 67)))
-(add-hook 'latex-mode-hook 'auto-fill-mode)
 
 ;; Default spaces/tabs/line endings
 (setq-default indent-tabs-mode nil) ;nil = only spaces
@@ -118,6 +113,13 @@
 
 ;; Default mode for unknown files
 (setq default-major-mode 'text-mode)
+
+;; set python highlight style
+(add-hook 'python-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode nil)
+        (setq tab-width 4)
+        (setq python-indent-offset 4)))
 
 ;; set "c-mode" highlight style
 (setq c-default-style "linux")
@@ -132,14 +134,17 @@
 (autoload 'rust-mode "rust-mode" nil t)
 (setq auto-mode-alist (cons '("\\.rs$" . rust-mode) auto-mode-alist))
 
+;; markdown
+(autoload 'markdown-mode "markdown-mode" nil t)
+(setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+
 ;; python
 (setq-default python-indent 4)
 
-;; proverif
+;; csvmode
 (setq auto-mode-alist
-      (cons '("\\.pv$" . proverif-pv-mode)
-      (cons '("\\.gen$" . proverif-pv-mode) auto-mode-alist)))
-(autoload 'proverif-pv-mode "proverif" "" t)
+      (cons '("\\.csv$" . csv-mode) auto-mode-alist))
+(autoload 'csv-mode "csv-mode" "" t)
 
 ;; asciidoc mode
 (define-derived-mode asciidoc-mode text-mode
