@@ -96,10 +96,6 @@
 ;; color:
 ;(set-face-background 'hightlight-current-line-face "light white")
 
-;; set color theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-hober)
 ;; remove menu bar
 (menu-bar-mode 0)
 
@@ -192,7 +188,7 @@
 (setq-default ispell-program-name "aspell")
 (setq ispell-change-dictionary "en-US")
 ;; flyspell
-(add-hook 'text-mode-hook 'flyspell-mode) ;turn flyspell on for text-files
+;(add-hook 'text-mode-hook 'flyspell-mode) ;turn flyspell on for text-files
 
 ;;
 ;; End of file
